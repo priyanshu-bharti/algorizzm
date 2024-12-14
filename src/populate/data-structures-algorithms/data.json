@@ -1,0 +1,187 @@
+[
+  {
+    "id": "1",
+    "difficulty": "easy",
+    "pattern": "Arrays - Hash Set",
+    "questionName": "Contains Duplicate",
+    "problemStatement": "Given a nums list, check if it has duplicate elements and return true/false.",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Compare each item in list with its counterparts, if the elements match, they're duplicate.",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "Keep a seen set, check if the set has the item, if yes, return true, if not, then add it to the set and move on.",
+        "isCode": false
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "difficulty": "easy",
+    "pattern": "Arrays - Hash Map",
+    "questionName": "Valid Anagrams",
+    "problemStatement": "Given 2 strings, check if they're valid anagrams of each other.",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Sort both strings, they'll be equal if they're anagrams",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "Construct a frequency map for both str, for each key/value in mapA check if mapB has the same key/value by setting flag to false.",
+        "isCode": false
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "difficulty": "medium",
+    "pattern": "Arrays - Hash Map of Buckets",
+    "questionName": "Group Anagrams",
+    "problemStatement": "Given a list of strings, group the valid anagrams together",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Store sorted strings in buckets in a map, then return those bucket list.",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "Store Alphabet frequency string as key in a map and store bucket (array) of strings which have the same alphabet frequency string.",
+        "isCode": false
+      },
+      {
+        "name": "Code",
+        "answer": "Store Alphabet frequency string as key in a map and store bucket (array) of strings which have the same alphabet frequency string.",
+        "isCode": false
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "difficulty": "medium",
+    "pattern": "Arrays - Hash Map",
+    "questionName": "Top K frequent elements",
+    "problemStatement": "Given a list of nums, return the top K most frequently occurring items.",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Create a frequency map for each number, then create array from that map and sort it in descending order, then slice first K items.",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "Create frequency map and a bucket[] of length 1 more than nums. Taking frequency as idx, push val from the map to bucket's internal list. Then move from right to left and add K items to result array.",
+        "isCode": false
+      },
+      {
+        "name": "Code Solution",
+        "answer": "CmZ1bmN0aW9uIHRvcEtGcmVxdWVudChudW1zOiBudW1iZXJbXSwgazogbnVtYmVyKSB7CiAgY29uc3QgZnJlcXVlbmN5ID0gbmV3IE1hcDxudW1iZXIsIG51bWJlcj4oKTsKCiAgLy8gQnVpbGQgdGhlIGZyZXF1ZW5jeSBtYXAgLSBPKG4pCiAgZm9yIChjb25zdCBudW0gb2YgbnVtcykgewogICAgZnJlcXVlbmN5LnNldChudW0sIChmcmVxdWVuY3kuZ2V0KG51bSkgPz8gMCkgKyAxKTsKICB9CgogIC8vIFN0b3JlIHRoZSBmcmVxdWVudCBlbnRyaWVzIGluIGEgbGlzdAogIGNvbnN0IHJlczogbnVtYmVyW11bXSA9IFtdOwoKICAvLyBDb252ZXJ0IHRoZSBtYXAgdG8gYW4gYXJyYXkgYW5kIHNvcnQgLSBPKG4pCiAgZm9yIChjb25zdCBlbnRyeSBvZiBmcmVxdWVuY3kpIHsKICAgIHJlcy5wdXNoKGVudHJ5KTsKICB9CgogIC8vIFNvcnQgaW4gZGVzY2VuZGluZyBvcmRlciBiYXNlZCBvbiBmcmVxdWVuY3kgTyhOIGxvZyBOKQogIHJlcy5zb3J0KChhLCBiKSA9PiBiWzFdIC0gYVsxXSk7CgogIC8vIFNsaWNlIHRoZSBhcnJheSBmb3IgZmlyc3QgayBpdGVtcyBhbmQgcmV0dXJuIG9ubHkgdGhlIGtleSAtIE8oaykgKyBPKGspCiAgcmV0dXJuIHJlcy5zbGljZSgwLCBrKS5tYXAoKFtrZXksIHZhbF0pID0+IGtleSk7Cn0KCmZ1bmN0aW9uIHRvcEtGcmVxdWVudE9wdGltYWwobnVtczogbnVtYmVyW10sIGs6IG51bWJlcik6IG51bWJlcltdIHsKICBjb25zdCBmcmVxdWVuY3kgPSBuZXcgTWFwPG51bWJlciwgbnVtYmVyPigpOwogIGNvbnN0IGJ1Y2tldHM6IG51bWJlcltdW10gPSBuZXcgQXJyYXkobnVtcy5sZW5ndGggKyAxKTsKCiAgLy8gQ3JlYXRlIGZyZXF1ZW5jeSBtYXAKICBmb3IgKGNvbnN0IG51bSBvZiBudW1zKSB7CiAgICBmcmVxdWVuY3kuc2V0KG51bSwgKGZyZXF1ZW5jeS5nZXQobnVtKSA/PyAwKSArIDEpOwogIH0KCiAgLy8gQ3JlYXRlIGJ1Y2tldHMgb2YgbGlzdHMgd2l0aCBudW1iZXIgYXQgaW5kZXggb2YgZnJlcXVlbmN5CiAgZm9yIChjb25zdCBbdmFsLCBjb3VudF0gb2YgZnJlcXVlbmN5KSB7CiAgICBpZiAoIWJ1Y2tldHNbY291bnRdKSBidWNrZXRzW2NvdW50XSA9IFtdOwogICAgYnVja2V0c1tjb3VudF0ucHVzaCh2YWwpOwogIH0KCiAgLy8gU3RvcmUgdGhlIHJlc3VsdGluZyBudW1iZXJzCiAgY29uc3QgcmVzOiBudW1iZXJbXSA9IFtdOwoKICAvLyBBZGQgdG9wIEsgbnVtYmVycyBmcm9tIGVhY2ggbm9uIGVtcHR5IGJ1Y2tldCAocmlnaHQgdG8gbGVmdCkKICBmb3IgKGxldCBpID0gYnVja2V0cy5sZW5ndGg7IGkgPj0gMDsgaS0tKSB7CiAgICBpZiAoIWJ1Y2tldHNbaV0pIGNvbnRpbnVlOwoKICAgIGZvciAobGV0IGogPSAwOyBqIDwgYnVja2V0c1tpXS5sZW5ndGggJiYgayA+IDA7IGorKywgay0tKSB7CiAgICAgIHJlcy5wdXNoKGJ1Y2tldHNbaV1bal0pOwogICAgfQogIH0KCiAgcmV0dXJuIHJlczsKfQoKY29uc3QgbnVtcyA9IFsxLCAxLCA5LCA5LCAyLCAyLCAzLCA0LCA0LCA1LCA1LCA1XTsKY29uc3QgayA9IDM7Cgpjb25zb2xlLmxvZyh0b3BLRnJlcXVlbnQobnVtcywgaykpOwpjb25zb2xlLmxvZyh0b3BLRnJlcXVlbnRPcHRpbWFsKG51bXMsIGspKTsK",
+        "isCode": true
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "difficulty": "medium",
+    "pattern": "Arrays - Hash Map",
+    "questionName": "Product of array except self",
+    "problemStatement": "Given a list of nums, return a list with ith element being the product of every other element.",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Calculate the product of all numbers in the list, then for each num of nums, divide num with product of all numbers into the result arr.",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "Create res array filled with 1s. Init prefix and suffix product as 1 and then for ranges 0 to N-1 and N-1 to 0, multiply the prefix and suffix product to the res arr then compute the new value for prefix and suffix from the array items",
+        "isCode": false
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "difficulty": "medium",
+    "pattern": "Arrays - Matrix",
+    "questionName": "Set Matrix Zeroes",
+    "problemStatement": "Given a binary matrix, if an element is 0, set its entire row and column to 0's.",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Iterate over each item and store row/col num for each cell with value as 0, then iterate over list of rows/col to be zeroed out.",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "Use 1st row and col to mark which row/col needs to be 0ed. Keep flag for 0th row being zero. Then for each row/col convert the 1s to 0s and handle cases for 1st row and column having 0s in them.",
+        "isCode": false
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "difficulty": "easy",
+    "pattern": "Arrays - Matrix",
+    "questionName": "Pascal's Triangle",
+    "problemStatement": "Given a number, return a list representing the pascal's triangle",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Row will be in range `0` to `N - 1`. Col will be in range 1 to Row - 1. For each row iteration, create newRow[row+1] filled with 1. For each col of newRow, add prev and curr col of result[row-1] and push newRow to result array.",
+        "isCode": false
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "difficulty": "medium",
+    "pattern": "Arrays",
+    "questionName": "Next permutation",
+    "problemStatement": "Given list of nums, return the next permutation as per the lexicological order.",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "Sort the list, find permutations recursively, perform linear search for the original idx, move ahead and return the next permutation.",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "In the worst case, the nums is a decreasing order array, which will be reversed to obtain next permutation. Firstly find the dip, then check for worst case. Then find the slightly larger item after the dip, swap them, reverse the remainder portion of array and return",
+        "isCode": false
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "difficulty": "easy",
+    "pattern": "Arrays - DP",
+    "questionName": "Largest Subarray Sum - Kadane's Algorithm",
+    "problemStatement": "Given list of nums, return the largest sum of the contiguous subarray",
+    "isExpanded": false,
+    "solutions": [
+      {
+        "name": "Bruteforce",
+        "answer": "For each start and end point in a window, continuously compare the largest and current sum and return the answer.",
+        "isCode": false
+      },
+      {
+        "name": "Optimal",
+        "answer": "Take currSum and maxSum as -infinity. then for each num of nums, currSum = max(num, currSum + num) and maxSum = max(currSum, maxSum). Return maxSum",
+        "isCode": false
+      }
+    ]
+  }
+]

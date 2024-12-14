@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "solutions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "isExpanded": {
+              "type": "boolean"
+            },
+            "questionName": {
+              "type": "string"
+            },
+            "pattern": {
+              "type": "string"
+            },
+            "difficulty": {
+              "type": "string"
+            },
+            "problemStatement": {
+              "type": "string"
+            },
+            "solutions": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "answer": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["name", "answer"]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "answer": {
+                      "type": "string"
+                    },
+                    "isCode": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": ["name", "answer", "isCode"]
+                }
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "questionName",
+            "pattern",
+            "difficulty",
+            "problemStatement",
+            "solution"
+          ]
+        }
+      ]
+    }
+  },
+  "required": ["solutions"]
+}
