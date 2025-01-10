@@ -9,18 +9,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { dsaDropdownMenu } from "@/constants/data-structures-algorithms/constants";
 import { useCollapseTile } from "@/hooks/data-structures-algorithms/use-collapse-tile";
 import { useQuestions } from "@/hooks/data-structures-algorithms/use-questions";
-import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerTrigger } from "@/components/ui/drawer";
 import { Plus } from "lucide-react";
+import AddQuestionsDrawer from "@/components/widgets/data-structures-algorithms/AddQuestionsDrawer";
 
 const DsaQuestionTile = dynamic(
   () =>
@@ -43,7 +34,7 @@ export default function DataStructuresAlgorithmsPage() {
     export: () => {},
   };
 
-  const dropdownListItems = dsaDropdownMenu.listItem.map((item) => ({
+  const dropdownListItems = dsaDropdownMenu.listItems.map((item) => ({
     ...item,
     onClick:
       dropdownMenuActions[item.onClick as keyof typeof dropdownMenuActions],
@@ -77,18 +68,7 @@ export default function DataStructuresAlgorithmsPage() {
           />
         ))}
 
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-            <DrawerDescription>This action cannot be undone.</DrawerDescription>
-          </DrawerHeader>
-          <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose>
-              <div>Cancel</div>
-            </DrawerClose>
-          </DrawerFooter>
-        </DrawerContent>
+        <AddQuestionsDrawer />
       </Drawer>
     </div>
   );

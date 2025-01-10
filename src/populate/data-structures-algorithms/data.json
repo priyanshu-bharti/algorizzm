@@ -7,16 +7,6 @@
     "problemStatement": "Given a nums list, check if it has duplicate elements and return true/false.",
     "isExpanded": false,
     "solutions": [
-      {
-        "name": "Bruteforce",
-        "answer": "Compare each item in list with its counterparts, if the elements match, they're duplicate.",
-        "isCode": false
-      },
-      {
-        "name": "Optimal",
-        "answer": "Keep a seen set, check if the set has the item, if yes, return true, if not, then add it to the set and move on.",
-        "isCode": false
-      }
     ]
   },
   {

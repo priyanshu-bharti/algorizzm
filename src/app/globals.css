@@ -85,4 +85,8 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  .button-primary {
+    @apply transition-colors bg-purple-700 hover:bg-purple-800 dark:bg-purple-300 dark:hover:bg-purple-200;
+  }
 }

@@ -17,6 +17,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DsaQuestion } from "@/lib/types";
 import { useSyntaxHighlighter } from "@/hooks/common/use-syntax-highlighter";
 import { decodeCodeString } from "@/lib/utils";
+import { DrawerTrigger } from "@/components/ui/drawer";
 
 interface DsaQuestionTileProps {
   questionEntry: DsaQuestion;
@@ -55,7 +56,9 @@ const DsaQuestionTile = ({
                 role="button"
                 className="grid h-7 w-7 place-items-center rounded-md border transition-colors hover:bg-muted"
               >
-                <Edit className="aspect-square h-4" />
+                <DrawerTrigger asChild className="">
+                  <Edit className="aspect-square h-4" />
+                </DrawerTrigger>
               </div>
               <h2 className="text-lg font-bold">
                 {questionEntry.questionName}
@@ -76,38 +79,42 @@ const DsaQuestionTile = ({
           </div>
         </AccordionTrigger>
         <AccordionContent>
-          <Tabs defaultValue={questionEntry.solutions[0].name}>
-            <TabsList>
-              {questionEntry.solutions.map((sol, idx) => (
-                <TabsTrigger key={`${sol.name}${idx}`} value={sol.name}>
-                  {sol.name}
-                </TabsTrigger>
+          {questionEntry.solutions.length !== 0 ? (
+            <Tabs defaultValue={questionEntry.solutions[0].name}>
+              <TabsList>
+                {questionEntry.solutions.map((sol, idx) => (
+                  <TabsTrigger key={`${sol.name}${idx}`} value={sol.name}>
+                    {sol.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              {questionEntry.solutions.map((solution, idx) => (
+                <TabsContent
+                  className={""}
+                  key={`${solution.answer}${idx}`}
+                  value={solution.name}
+                >
+                  {solution.isCode ? (
+                    <SyntaxHighlighter
+                      language="typescript"
+                      showLineNumbers
+                      style={syntaxTheme}
+                      wrapLongLines
+                      customStyle={{ textWrap: "wrap", wordBreak: "break-all" }}
+                    >
+                      {decodeCodeString(solution.answer).trim()}
+                    </SyntaxHighlighter>
+                  ) : (
+                    <Markdown className="text-wrap break-all">
+                      {solution.answer}
+                    </Markdown>
+                  )}
+                </TabsContent>
               ))}
-            </TabsList>
-            {questionEntry.solutions.map((solution, idx) => (
-              <TabsContent
-                className={""}
-                key={`${solution.answer}${idx}`}
-                value={solution.name}
-              >
-                {solution.isCode ? (
-                  <SyntaxHighlighter
-                    language="typescript"
-                    showLineNumbers
-                    style={syntaxTheme}
-                    wrapLongLines
-                    customStyle={{ textWrap: "wrap", wordBreak: "break-all" }}
-                  >
-                    {decodeCodeString(solution.answer).trim()}
-                  </SyntaxHighlighter>
-                ) : (
-                  <Markdown className="text-wrap break-all">
-                    {solution.answer}
-                  </Markdown>
-                )}
-              </TabsContent>
-            ))}
-          </Tabs>
+            </Tabs>
+          ) : (
+            <div>No solutions 🥺 Edit this question to add solution.</div>
+          )}
         </AccordionContent>
       </AccordionItem>
     </Accordion>

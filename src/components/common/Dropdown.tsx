@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import clsx from "clsx";
 
-import { DropDownMenuData, DropdownMenuListItem } from "@/lib/types";
+import { DropdownMenuMetadata, DropdownMenuListItem } from "@/lib/types";
 
 import { Button } from "../ui/button";
 import {
@@ -20,7 +20,7 @@ export const Dropdown = ({
   variant = "ghost",
 }: {
   variant: "ghost" | "default";
-  listData: DropDownMenuData;
+  listData: DropdownMenuMetadata;
   listItems: DropdownMenuListItem[];
 }) => {
   const classes = {

@@ -9,24 +9,19 @@ export function useQuestions() {
   const [questions, setQuestions] = useState<DsaQuestion[]>([]);
 
   useEffect(() => {
-    const USE_JSON_DATA = true;
-    const loadingToast = toast.info("Loading Questions...");
+    const USE_STATIC_JSON_DATA = process.env.NEXT_PUBLIC_SEED_DSA_QUESTIONS;
 
     const initializeQuestions = async () => {
       try {
-        if (USE_JSON_DATA) {
-          // Load from static JSON data
+        if (USE_STATIC_JSON_DATA) {
           setQuestions(dsaJson);
         } else {
-          // Fetch questions from IndexedDB
           const dbQuestions = await dsaQuestionsDatabase.getAllQuestions();
           setQuestions(dbQuestions);
         }
-        toast.dismiss(loadingToast);
         toast.success("Questions loaded successfully!");
       } catch (error) {
         console.error("Failed to load questions:", error);
-        toast.dismiss(loadingToast);
         toast.error("Failed to load questions.");
       }
     };

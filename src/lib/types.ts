@@ -27,12 +27,17 @@ export interface DropdownMenuListItem {
   >;
 }
 
-export interface DropDownMenuData {
+export interface DropdownMenuMetadata {
   name: string;
   displayMessage: string;
   icon: React.ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >;
+}
+
+export interface DropdownMenuData {
+  data: DropdownMenuMetadata;
+  listItems: DropdownMenuListItem[];
 }
 
 /* ----------------------------- Accordion State ---------------------------- */

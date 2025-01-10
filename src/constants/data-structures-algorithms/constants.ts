@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
+import { DropdownMenuData } from "@/lib/types";
 import {
   Cog,
   ArrowUpFromLine,
@@ -9,13 +10,13 @@ import {
   Share,
 } from "lucide-react";
 
-export const dsaDropdownMenu = {
+export const dsaDropdownMenu: DropdownMenuData = {
   data: {
     name: "Preferences",
     displayMessage: "Preferences Menu",
     icon: Cog,
   },
-  listItem: [
+  listItems: [
     {
       name: "Expand All",
       onClick: "expandAll",
