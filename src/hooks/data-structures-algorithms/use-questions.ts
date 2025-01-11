@@ -9,7 +9,7 @@ export function useQuestions() {
   const [questions, setQuestions] = useState<DsaQuestion[]>([]);
 
   useEffect(() => {
-    const USE_STATIC_JSON_DATA = process.env.NEXT_PUBLIC_SEED_DSA_QUESTIONS;
+    const USE_STATIC_JSON_DATA = process.env.NEXT_PUBLIC_SEED_DSA_QUESTIONS === "true";
 
     const initializeQuestions = async () => {
       try {
